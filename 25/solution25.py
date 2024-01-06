@@ -42,7 +42,7 @@ def get_graph(edges):
 
 def shortest_paths(start_node, graph):
     """
-    Given a start node in a graph, perform a depth-first seach
+    Given a start node in a graph, perform a breadth-first seach
     to create and return a dict that maps each node that is
     reachable from the start node to the shortest path from
     the start node. A path is a tuple of nodes.

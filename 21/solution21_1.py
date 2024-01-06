@@ -1,4 +1,3 @@
-from collections import defaultdict, deque
 from sys import argv
 
 from tools21 import Direction, get_contents, get_next_position, parse_file, within_bounds
@@ -21,12 +20,11 @@ def generate_neighbour_positions(position, matrix, size):
 def search(start, matrix, size, radius):
     layer_nodes = {start}
     for layer in range(radius):
-        new_layer_nodes = set()
-        while len(layer_nodes) > 0:
-            position = layer_nodes.pop()
-            extensions = set(generate_neighbour_positions(position, matrix, size))
-            new_layer_nodes.update(extensions)
-        layer_nodes = new_layer_nodes
+        layer_nodes = {
+            neighbour
+            for position in layer_nodes
+            for neighbour in generate_neighbour_positions(position, matrix, size)
+        }
     return len(layer_nodes)
 
 

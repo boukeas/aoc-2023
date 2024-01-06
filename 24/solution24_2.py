@@ -50,6 +50,8 @@ if __name__ == '__main__':
 
     # select 3 hailstones
     triplet_iterator = combinations(hailstones, 3)
+    # note: this may need to be repeated, if the specific triplet
+    # happens to yield equations that are not linearly independent
     (c1, d1), (c2, d2), (c3, d3) = next(triplet_iterator)
 
     b_top = np.cross(d1, c1) - np.cross(d2, c2)
